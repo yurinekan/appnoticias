@@ -7,7 +7,7 @@ import { NoticiasService } from '../noticias.service';
   styleUrls: ['./noticias.page.scss'],
 })
 export class NoticiasPage implements OnInit {
-
+  data: any;
   constructor(private noticiaService: NoticiasService) { }
 
   ngOnInit() {
@@ -15,6 +15,7 @@ export class NoticiasPage implements OnInit {
     .getData('top-headlines?country=us&category=business')
     .subscribe(data => {
       console.log(data);
+      this.data = data;
     });
   }
 
