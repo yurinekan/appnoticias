@@ -1,12 +1,11 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Notícias</ion-title>
+  <ion-toolbar color="dark">
+    <ion-title>Empresas e negócios</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <ion-card *ngFor="let article of data?.articles">
+  <ion-card *ngFor="let article of data?.articles" color="light">
 
       <ion-img [src]="article.urlToImage"></ion-img>
   
@@ -17,5 +16,4 @@
       <p>{{article.description}}</p>
     </ion-card-content>
   </ion-card>
-  
 </ion-content>
