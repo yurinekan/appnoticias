@@ -76,11 +76,19 @@
   --ion-color-light-tint: #f5f6f9;
 
   /** midnightblue **/
-  --ion-color-midnightblue: #191970;
+  --ion-color-midnightblue: #101046;
   --ion-color-midnightblue-rgb: 25, 25, 112;
   --ion-color-midnightblue-contrast: #ffffff;
   --ion-color-midnightblue-contrast-rgb: 255, 255, 255;
-  --ion-color-midnightblue-shade: #5081e2;
+  --ion-color-midnightblue-shade: #152a55;
   --ion-color-midnightblue-tint: #091f61;
 
+  .ion-color-midnightblue {
+    --ion-color-base: var(--ion-color-midnightblue);
+    --ion-color-base-rgb: var(--ion-color-midnightblue-rgb);
+    --ion-color-contrast: var(--ion-color-midnightblue-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-midnightblue-contrast-rgb);
+    --ion-color-shade: var(--ion-color-midnightblue-shade);
+    --ion-color-tint: var(--ion-color-midnightblue-tint);
+  }
 }

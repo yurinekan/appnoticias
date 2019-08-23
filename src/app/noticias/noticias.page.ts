@@ -12,11 +12,10 @@ export class NoticiasPage implements OnInit {
 
   ngOnInit() {
     this.noticiaService
-    .getData('top-headlines?country=us&category=business')
-    .subscribe(data => {
-      console.log(data);
-      this.data = data;
+    .getData('top-headlines?country=br')
+    .subscribe(dados => {
+      console.log(dados);
+      this.data = dados;
     });
   }
-
 }

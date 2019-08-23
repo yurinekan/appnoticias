@@ -1,19 +1,26 @@
 <ion-header>
-  <ion-toolbar color="dark">
-    <ion-title>Empresas e negócios</ion-title>
+  <ion-toolbar color="midnightblue">
+    <ion-title>Notícias Recentes</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card *ngFor="let article of data?.articles" color="light">
+  <ion-card *ngFor="let article of data?.articles">
 
       <ion-img [src]="article.urlToImage"></ion-img>
   
     <ion-card-content>
-      <ion-card-subtitle>Teste</ion-card-subtitle>
+
+      <ion-card-subtitle>{{article.publishedAt | date: 'dd/MM/yyyy H:mm'}}</ion-card-subtitle>
       <ion-card-title>{{article.title}}</ion-card-title>
-      
-      <p>{{article.description}}</p>
+
+      <p id="description">{{article.description}}</p>
+
+
+
     </ion-card-content>
+      <ion-item lines="none" href="{{article.url}}">
+        <ion-label color="light" class="site"><h4><strong>Site do artigo</strong></h4></ion-label>
+      </ion-item>    
   </ion-card>
 </ion-content>

@@ -1,4 +1,8 @@
-ion-button {
-    color: rgb(240, 128, 128);
+ion-footer {
+    ion-button{
+        ion-label {
+            vertical-align: middle;
+        }
+    }
 
 }

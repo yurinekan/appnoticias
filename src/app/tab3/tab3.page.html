@@ -1,21 +1,28 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="midnightblue">
     <ion-title>
-      Informações
+      <strong>Informações</strong>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-item expand="full">
-
-<ion-button href="https://newsapi.org/" fill="clear" size="large">
-
-    <ion-icon name="logo-instagram"></ion-icon>
-    <ion-label id="1" padding>News API</ion-label>
-
-</ion-button>
+  <ion-item lines="none" color="medium" size="large">
+    <ion-label color="dark">DARK MODE</ion-label>
+    <ion-button fill="clear" slot="end">
+      <ion-icon slot="icon-only" name="bulb" href="#" color="dark"></ion-icon>
+    </ion-button>
   </ion-item>
 
 
+
 </ion-content>
+
+<ion-footer>
+    <ion-item lines="none" color="dark">
+      <ion-button href="https://newsapi.org/" fill="clear" expand="full">
+        <ion-label class="powered"><h3>POWERED BY APINEWS.ORG</h3></ion-label>
+      </ion-button>
+    </ion-item>
+
+</ion-footer>
