@@ -1,10 +1,14 @@
 <ion-header>
   <ion-toolbar color="midnightblue">
     <ion-title>Notícias Recentes</ion-title>
+    <ion-button slot="end" fill="clear" size="small" href="#">
+      <ion-icon name="refresh"></ion-icon>
+    </ion-button>
   </ion-toolbar>
+  
 </ion-header>
 
-<ion-content>
+<ion-content color="light2">
   <ion-card *ngFor="let article of data?.articles">
 
       <ion-img [src]="article.urlToImage"></ion-img>
@@ -20,7 +24,7 @@
 
     </ion-card-content>
       <ion-item lines="none" href="{{article.url}}">
-        <ion-label color="light" class="site"><h4><strong>Site do artigo</strong></h4></ion-label>
+        <ion-label color="light" class="site" text-lowercase><h4><strong>{{article.source.name}}</strong></h4></ion-label>
       </ion-item>    
   </ion-card>
 </ion-content>
