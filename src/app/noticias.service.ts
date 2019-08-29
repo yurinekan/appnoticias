@@ -8,7 +8,7 @@ const API_KEY = environment.apiKey;
   providedIn: 'root'
 })
 export class NoticiasService {
-
+  pesquisa: string;
   constructor(private http: HttpClient) { }
 
 
