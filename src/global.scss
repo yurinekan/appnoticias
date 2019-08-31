@@ -36,3 +36,88 @@ ion-card-subtitle {
 .nome {
     font-family: 'Bree Serif', sans-serif;
 }
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+  .animated.fast {
+    -webkit-animation-duration: 1000ms;
+    animation-duration: 1000ms;
+  }
+  .animated.fast2 {
+    -webkit-animation-duration: 300ms;
+    animation-duration: 300ms;
+  }
+
+
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+  }
+
+
+
+  @-webkit-keyframes rotateIn {
+    from {
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transform: rotate3d(0, 0, 1, -200deg);
+      transform: rotate3d(0, 0, 1, -200deg);
+      opacity: 0;
+    }
+  
+    to {
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes rotateIn {
+    from {
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transform: rotate3d(0, 0, 1, -200deg);
+      transform: rotate3d(0, 0, 1, -200deg);
+      opacity: 0;
+    }
+  
+    to {
+      -webkit-transform-origin: center;
+      transform-origin: center;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+  
+  .rotateIn {
+    -webkit-animation-name: rotateIn;
+    animation-name: rotateIn;
+  }  

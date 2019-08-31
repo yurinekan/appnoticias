@@ -24,8 +24,9 @@
       <ion-label color="light">
         <h2><b>Modo escuro</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end" href="#" (click)="darkMode()">
-        <ion-icon slot="icon-only" name="bulb" mode="md" color="light"></ion-icon>
+      <ion-button fill="clear" slot="end" href="" (click)="darkMode()">
+        <ion-icon slot="icon-only" name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
+        <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>
     </ion-item>
     <ion-item lines="none" color="medium3">
@@ -62,12 +63,10 @@
 </ion-content>
 
 <ion-footer>
-  <ion-item href="https://newsapi.org/" lines="none" color="dark" detail>
-    <ion-button fill="clear" expand="full" color="light">
-      <ion-label class="powered">
-        <h3><strong>POWERED BY APINEWS.ORG</strong></h3>
+  <ion-item href="https://newsapi.org/" lines="none" color="dark">
+      <ion-label>
+        <strong>POWERED BY APINEWS.ORG</strong>
       </ion-label>
-    </ion-button>
   </ion-item>
 
 </ion-footer>

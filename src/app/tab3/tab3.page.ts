@@ -8,14 +8,19 @@ import { TestBed } from '@angular/core/testing';
 })
 export class Tab3Page implements OnInit {
 
- nome = '';
-
-  constructor() {}
+  nome = '';
+  bulb = false;
+  constructor() { }
 
   ngOnInit() {
   }
   darkMode() {
-    console.log('darkmode');
+    this.bulb = !this.bulb;
+    if (this.bulb === true) {
+      console.log('darkmode');
+    } else {
+      console.log('lightmode');
+    }
   }
   nomeFunc() {
     console.log(this.nome);
