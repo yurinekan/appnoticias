@@ -6,8 +6,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light2">
-  <ion-item color="dark" class="nome">
+<ion-content color="light2" [hidden]="lightM">
+  <ion-item color="medium6" class="nome">
     <h2><strong>E aí, {{nome}}</strong></h2>
   </ion-item>
   <ion-list style="padding: 0px;">
@@ -25,7 +25,7 @@
         <h2><b>Modo escuro</b></h2>
       </ion-label>
       <ion-button fill="clear" slot="end" href="" (click)="darkMode()">
-        <ion-icon slot="icon-only" name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
+        <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="bulb"></ion-icon>
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>
     </ion-item>
@@ -42,7 +42,7 @@
         <h2><b>Opção c</b></h2>
       </ion-label>
       <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
+        <ion-icon slot="icon-only" name="planet" mode="md" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
     <ion-item lines="none" color="medium">
@@ -53,20 +53,73 @@
         <ion-icon slot="icon-only" name="paper" mode="md" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
-
-
   </ion-list>
-
-
-
-
 </ion-content>
 
-<ion-footer>
+<ion-footer [hidden]="lightM">
   <ion-item href="https://newsapi.org/" lines="none" color="dark">
       <ion-label>
         <strong>POWERED BY APINEWS.ORG</strong>
       </ion-label>
   </ion-item>
-
 </ion-footer>
+
+<!-- Dark Mode -->
+<ion-content color="dark" [hidden]="darkM">
+  <ion-item color="medium" class="nome">
+  <h2><strong style="color: black">E aí, {{nome}}</strong></h2>
+  </ion-item>
+  <ion-list style="padding: 0px;">
+    <ion-item lines="none" color="medium2">
+      <ion-label color="dark">
+        <h2><b>Digite seu nome:</b></h2>
+      </ion-label>
+      <ion-input [(ngModel)]="nome" placeholder="Filomina" type="text" maxlength="15" (keyup.enter)='nomeFunc()' color="dark"></ion-input>
+      <ion-button fill="clear" slot="end">
+        <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none" color="medium3">
+      <ion-label color="dark">
+        <h2><b>Modo escuro</b></h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end" href="" (click)="darkMode()">
+        <ion-icon slot="icon-only" name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
+        <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none" color="medium4">
+      <ion-label color="dark">
+        <h2><b>Opção b</b></h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon slot="icon-only" name="paper" mode="md" color="light"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none" color="medium5">
+      <ion-label color="dark">
+        <h2><b>Opção c</b></h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <ion-item lines="none" color="medium6">
+      <ion-label color="dark">
+        <h2><b>Opção d</b></h2>
+      </ion-label>
+      <ion-button fill="clear" slot="end">
+        <ion-icon slot="icon-only" name="paper" mode="md" color="light"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer [hidden]="darkM">
+  <ion-item href="https://newsapi.org/" lines="none" color="medium">
+      <ion-label>
+        <strong>POWERED BY APINEWS.ORG</strong>
+      </ion-label>
+  </ion-item>
+</ion-footer>
+

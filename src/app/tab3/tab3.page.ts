@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
 
 @Component({
   selector: 'app-tab3',
@@ -10,6 +9,8 @@ export class Tab3Page implements OnInit {
 
   nome = '';
   bulb = false;
+  darkM = true;
+  lightM = false;
   constructor() { }
 
   ngOnInit() {
@@ -18,7 +19,11 @@ export class Tab3Page implements OnInit {
     this.bulb = !this.bulb;
     if (this.bulb === true) {
       console.log('darkmode');
+      this.darkM = false;
+      this.lightM = true;
     } else {
+      this.darkM = true;
+      this.lightM = false;
       console.log('lightmode');
     }
   }
