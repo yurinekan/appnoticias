@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NoticiasService } from '../noticias.service';
-import { IonContent } from '@ionic/angular';
+import { IonContent, Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-noticias',
@@ -13,9 +13,25 @@ export class NoticiasPage implements OnInit {
   data: any;
   pesquisa = '';
   hideSearch = true;
-  hideContent = false;
+  hideAll = false;
   visible = true;
-  constructor(private noticiaService: NoticiasService) { }
+  showDarkAll = true;
+  disR = false;
+
+  constructor(private noticiaService: NoticiasService, public events: Events) {
+    events.subscribe('mode:dark', (mode, time) => {
+      console.log('Você está no darkmode', 'at', time);
+      this.hideAll = true;
+      this.showDarkAll = false;
+      this.disR = true;
+    });
+    events.subscribe('mode:light', (mode, time) => {
+      console.log('Você está no lightmode', 'at', time);
+      this.hideAll = false;
+      this.showDarkAll = true;
+      this.disR = false;
+    });
+   }
 
   hideSearchf() {
     this.hideSearch = !this.hideSearch;

@@ -15,16 +15,15 @@
       <ion-label color="light">
         <h2><b>Digite seu nome:</b></h2>
       </ion-label>
-      <ion-input [(ngModel)]="nome" placeholder="Filomina" type="text" maxlength="15" (keyup.enter)='nomeFunc()'></ion-input>
+      <ion-input [(ngModel)]="nome" placeholder="Filomina" type="text" maxlength="15" (keyup.enter)='nameFunc()'></ion-input>
       <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="planet" mode="md" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item lines="none" color="medium4">
+    <ion-item lines="none" color="medium4" (click)="darkMode()">
       <ion-label color="light">
         <h2><b>Modo escuro</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end" href="" (click)="darkMode()">
+      <ion-button fill="clear" slot="end">
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="bulb"></ion-icon>
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>
@@ -65,6 +64,7 @@
 </ion-footer>
 
 <!-- Dark Mode -->
+
 <ion-content color="dark" [hidden]="darkM">
   <ion-item color="medium" class="nome">
   <h2><strong style="color: black">E aí, {{nome}}</strong></h2>
@@ -76,14 +76,13 @@
       </ion-label>
       <ion-input [(ngModel)]="nome" placeholder="Filomina" type="text" maxlength="15" (keyup.enter)='nomeFunc()' color="dark"></ion-input>
       <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item lines="none" color="medium3">
+    <ion-item lines="none" color="medium3" (click)="darkMode()">
       <ion-label color="dark">
         <h2><b>Modo escuro</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end" href="" (click)="darkMode()">
+      <ion-button fill="clear" slot="end">
         <ion-icon slot="icon-only" name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>

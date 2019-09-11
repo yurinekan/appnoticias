@@ -4,27 +4,30 @@
 ion-header {
     ion-button {
         color: white;
+        --color-activated: grey;
+        --color-focused: white;
         }
 
 }
 ion-content {
-    --background: white;
-    ion-card {
-        --background: rgb(218, 213, 213);
-        --opacity: 10%;
-    }
     ion-card-title {
-        color: black !important;
+        color: black;
+    }
+    #title2 {
+        color: grey;
     }
     ion-card-subtitle {
-        color: grey !important;
+        color: grey;
+    }
+    #subtitle2 {
+        color: white;
     }
     ion-item {
         --background: rgb(170, 169, 169);
     }
     #description {
         padding-top: 10px;
-        color: black !important;
+        color: black;
     }
 }
 ion-label.site {

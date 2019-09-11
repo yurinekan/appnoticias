@@ -1,12 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NoticiasService } from '../noticias.service';
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
-export class Tab2Page {
+export class Tab2Page implements OnInit {
 
-  constructor() {}
+  data: any;
+  constructor(private noticiaService: NoticiasService) {}
 
+  ngOnInit() {
+    this.noticiaService
+      .getData(`top-headlines?country=us`)
+      .subscribe(dados => {
+        console.log(dados);
+        this.data = dados;
+      });
+    }
 }
