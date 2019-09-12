@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar color="midnightblue">
+    <ion-title>{{article.source.name}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light2" class="center">
+  <ion-img [src]="article.urlToImage"></ion-img>
+  <h5 style="color: grey;"class="horas">{{article.publishedAt | date: 'dd/MM/yyyy H:mm'}}</h5>  
+  <p><strong padding>{{article.title}}</strong></p>
+  <p id="description">{{article.content}}</p>
+
+    <ion-button color="medium" fill="clear" href="{{article.url}}">
+ver mais
+    </ion-button>
+</ion-content>

@@ -9,11 +9,12 @@ import { NoticiasService } from '../noticias.service';
 export class Tab2Page implements OnInit {
 
   data: any;
+
   constructor(private noticiaService: NoticiasService) {}
 
   ngOnInit() {
     this.noticiaService
-      .getData(`top-headlines?country=us`)
+      .getData(`top-headlines?country=us&pageSize=100`)
       .subscribe(dados => {
         console.log(dados);
         this.data = dados;

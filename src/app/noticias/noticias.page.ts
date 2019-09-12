@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NoticiasService } from '../noticias.service';
 import { IonContent, Events } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-noticias',
@@ -18,7 +19,7 @@ export class NoticiasPage implements OnInit {
   showDarkAll = true;
   disR = false;
 
-  constructor(private noticiaService: NoticiasService, public events: Events) {
+  constructor(private noticiaService: NoticiasService, public events: Events, private router: Router) {
     events.subscribe('mode:dark', (mode, time) => {
       console.log('Você está no darkmode', 'at', time);
       this.hideAll = true;
@@ -48,7 +49,7 @@ export class NoticiasPage implements OnInit {
 
   dataBr() {
     this.noticiaService
-      .getData(`top-headlines?country=br`)
+      .getData(`top-headlines?country=br&pageSize=100`)
       .subscribe(dados => {
         console.log(dados);
         this.data = dados;
@@ -56,7 +57,7 @@ export class NoticiasPage implements OnInit {
   }
   dataRefresh(event) {
     this.noticiaService
-      .getData(`top-headlines?country=br`)
+      .getData(`top-headlines?country=br&pageSize=100`)
       .subscribe(dados => {
         console.log(dados);
         this.data = dados;
@@ -70,10 +71,19 @@ export class NoticiasPage implements OnInit {
   dataSearch(event) {
     this.content.scrollToTop(500);
     this.noticiaService
-      .getData(`top-headlines?country=br&q=${this.pesquisa}`)
+      .getData(`top-headlines?country=br&pageSize=100&q=${this.pesquisa}`)
       .subscribe(dados => {
         console.log(dados);
         this.data = dados;
       });
+  }
+
+  goToArticle(article) {
+    this.noticiaService.umArtigo = article;
+    this.router.navigate(['/noticia-solo']);
+  }
+  goToDarkArticle(article) {
+    this.noticiaService.umArtigo = article;
+    this.router.navigate(['/noticia-solo-dark']);
   }
 }

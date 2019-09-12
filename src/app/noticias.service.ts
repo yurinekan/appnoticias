@@ -8,9 +8,8 @@ const API_KEY = environment.apiKey;
   providedIn: 'root'
 })
 export class NoticiasService {
-  pesquisa: string;
+  umArtigo: any;
   constructor(private http: HttpClient) { }
-
 
   getData(url) {
     return this.http.get(`${API_URL}${url}&apiKey=${API_KEY}`);
