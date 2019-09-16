@@ -16,23 +16,19 @@ export class NoticiasPage implements OnInit {
   hideSearch = true;
   hideAll = false;
   visible = true;
-  showDarkAll = true;
-  disR = false;
+  md: string;
 
-  constructor(private noticiaService: NoticiasService, public events: Events, private router: Router) {
+  constructor(public noticiaService: NoticiasService, public events: Events, private router: Router) {
     events.subscribe('mode:dark', (mode, time) => {
       console.log('Você está no darkmode', 'at', time);
       this.hideAll = true;
-      this.showDarkAll = false;
-      this.disR = true;
     });
     events.subscribe('mode:light', (mode, time) => {
       console.log('Você está no lightmode', 'at', time);
       this.hideAll = false;
-      this.showDarkAll = true;
-      this.disR = false;
     });
-   }
+
+  }
 
   hideSearchf() {
     this.hideSearch = !this.hideSearch;
@@ -40,11 +36,17 @@ export class NoticiasPage implements OnInit {
   }
 
   ngOnInit() {
+    this.md = localStorage.getItem('mode');
+    if (this.md === 'dark') {
+      this.hideAll = true;
+    } else {
+      this.hideAll = false;
+    }
     this.dataBr();
   }
 
   scrollTop() {
-    this.content.scrollToTop(1000);
+    this.content.scrollToTop(500);
   }
 
   dataBr() {
@@ -80,10 +82,11 @@ export class NoticiasPage implements OnInit {
 
   goToArticle(article) {
     this.noticiaService.umArtigo = article;
-    this.router.navigate(['/noticia-solo']);
-  }
-  goToDarkArticle(article) {
-    this.noticiaService.umArtigo = article;
-    this.router.navigate(['/noticia-solo-dark']);
+    if (this.hideAll === false) {
+      this.router.navigate(['/noticia-solo']);
+    }
+    if (this.hideAll === true) {
+      this.router.navigate(['/noticia-solo-dark']);
+    }
   }
 }

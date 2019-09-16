@@ -1,33 +1,51 @@
-
 ion-header {
-    ion-button {
-        color: white;
-        --color-activated: grey;
-        --color-focused: white;
-        }
-
+  ion-button {
+    color: white;
+    --color-activated: grey;
+    --color-focused: white;
+  }
 }
-ion-content {
-    ion-card-title {
-        color: black;
+
+.light {
+  --background: #d6d7da;
+  ion-card-title {
+    color: black;
+  }
+  ion-card-subtitle {
+    color: grey;
+  }
+  ion-item {
+    --background: rgb(170, 169, 169);
+  }
+  #description {
+    padding-top: 10px;
+    color: black;
+  }
+}
+.dark {
+  --background: #222428;
+  ion-refresher {
+    ion-refresher-content {
+      padding-bottom: 90px;
+      padding-top: 30px;
+      background-color: #222428;
     }
-    #title2 {
-        color: grey;
+  }
+  .searchB {
+    --background: #3a3c3f;
+    --color: white;
+  }
+  ion-card {
+    background: black;
+    ion-card-title {
+      color: grey;
     }
     ion-card-subtitle {
-        color: grey;
-    }
-    #subtitle2 {
-        color: white;
-    }
-    ion-item {
-        --background: rgb(170, 169, 169);
+      color: white;
     }
     #description {
-        padding-top: 10px;
-        color: black;
+      padding-top: 10px;
+      color: grey;
     }
-}
-ion-label.site {
-    text-decoration: underline; 
+  }
 }

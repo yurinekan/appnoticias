@@ -9,12 +9,23 @@ import { Events } from '@ionic/angular';
 export class Tab3Page implements OnInit {
 
   nome = '';
-  bulb = false;
-  darkM = true;
-  lightM = false;
+  bulb;
+  darkM;
+  lightM;
+  md: string;
   constructor(public events: Events) { }
 
   ngOnInit() {
+    this.md = localStorage.getItem('mode');
+    if (this.md === 'dark') {
+      this.darkM = false;
+      this.lightM = true;
+      this.bulb = true;
+    } else {
+      this.darkM = true;
+      this.lightM = false;
+      this.bulb = false;
+    }
   }
   darkMode(mode) {
     this.bulb = !this.bulb;
@@ -23,11 +34,13 @@ export class Tab3Page implements OnInit {
       this.darkM = false;
       this.lightM = true;
       this.events.publish('mode:dark', mode, Date.now());
+      localStorage.setItem('mode', 'dark');
     } else {
-      this.events.publish('mode:light', mode, Date.now());
+      console.log('lightmode');
       this.darkM = true;
       this.lightM = false;
-      console.log('lightmode');
+      this.events.publish('mode:light', mode, Date.now());
+      localStorage.setItem('mode', 'light');
     }
   }
   nameFunc() {

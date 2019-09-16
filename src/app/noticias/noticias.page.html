@@ -1,4 +1,4 @@
-<ion-app style="background: #d6d7da" [hidden]="hideAll">
+<ion-app style="background: #d6d7da">
   <ion-header>
     <ion-toolbar color="midnightblue">
       <ion-title>Notícias Recentes</ion-title>
@@ -9,13 +9,13 @@
     </ion-toolbar>
 
   </ion-header>
-  <ion-content color="light2">
-    <ion-refresher style="background: #d6d7da" slot="fixed" (ionRefresh)="dataRefresh($event)" [disabled]="disR">
+  <ion-content [ngClass]="this.hideAll ? 'dark' : 'light'">
+    <ion-refresher slot="fixed" (ionRefresh)="dataRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
 
     <ion-searchbar [(ngModel)]="pesquisa" (keyup.enter)="dataSearch($event)" [hidden]="hideSearch"
-      placeholder="Procurar">
+      placeholder="Procurar" class=searchB>
     </ion-searchbar>
     <ion-card *ngFor="let article of data?.articles" class="animated fadeIn fast" (click)="goToArticle(article)">
 
@@ -24,25 +24,20 @@
       <ion-card-content>
 
         <ion-card-subtitle>{{article.publishedAt | date: 'dd/MM/yyyy H:mm'}}</ion-card-subtitle>
-        <ion-card-title mode="md" id="title"><strong>{{article.title}}</strong></ion-card-title>
+        <ion-card-title mode="md"><strong>{{article.title}}</strong></ion-card-title>
 
         <p id="description">{{article.description}}</p>
 
 
 
       </ion-card-content>
-      <ion-item lines="none" href="{{article.url}}">
-        <ion-label color="light" class="site" text-lowercase>
-          <h4><strong>{{article.source.name}}</strong></h4>
-        </ion-label>
-      </ion-item>
     </ion-card>
   </ion-content>
 </ion-app>
 
 <!-- Dark mode -->
 
-<ion-app style="background: #222428" [hidden]="showDarkAll">
+<!-- <ion-app style="background: #222428" [hidden]="showDarkAll">
   <ion-header>
     <ion-toolbar color="midnightblue">
       <ion-title>Notícias Recentes</ion-title>
@@ -53,7 +48,7 @@
     </ion-toolbar>
 
   </ion-header>
-  <ion-content color="dark">
+  <ion-content color="dark" id="2">
     <ion-refresher slot="fixed" (ionRefresh)="dataRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
@@ -75,11 +70,6 @@
 
 
       </ion-card-content>
-      <ion-item lines="none" href="{{article.url}}" color="medium6">
-        <ion-label color="light" class="site" text-lowercase>
-          <h4><strong>{{article.source.name}}</strong></h4>
-        </ion-label>
-      </ion-item>
     </ion-card>
   </ion-content>
-</ion-app>
+</ion-app> -->
