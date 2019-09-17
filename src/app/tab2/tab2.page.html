@@ -6,6 +6,35 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light2" padding>
+<ion-content [ngClass]="this.hideAll ? 'dark' : 'light'">
+  <ion-list>
+    <ion-item lines="none" (click)="appearUSA()">
+      <ion-label class="titulo">
+        Notícias USA
+      </ion-label>
+      <ion-icon name="arrow-dropdown" *ngIf="nUSA"></ion-icon>
+      <ion-icon name="arrow-dropright" *ngIf="!nUSA"></ion-icon>
+    </ion-item>
 
+    <ion-slides pager [options]="slideOpts" [hidden]="nUSA">
+      <ion-slide *ngFor="let article of data?.articles">
+        <ion-card class="animated fadeIn fast">
+
+          <ion-img [src]="article.urlToImage"></ion-img>
+
+          <ion-card-content>
+
+            <ion-card-subtitle>{{article.publishedAt | date: 'dd/MM/yyyy H:mm'}}</ion-card-subtitle>
+            <ion-card-title mode="md"><strong>{{article.title}}</strong></ion-card-title>
+
+            <p id="description">{{article.description}}</p>
+
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-slide>
+
+    </ion-slides>
+  </ion-list>
 </ion-content>

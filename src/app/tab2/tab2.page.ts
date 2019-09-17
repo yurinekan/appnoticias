@@ -9,7 +9,17 @@ import { NoticiasService } from '../noticias.service';
 export class Tab2Page implements OnInit {
 
   data: any;
-
+  nUSA = false;
+  hideAll = false;
+  slideOpts = {
+    slidesPerView: 1,
+    initialSlide: 0,
+    speed: 400,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+  }
+  };
   constructor(private noticiaService: NoticiasService) {}
 
   ngOnInit() {
@@ -20,4 +30,8 @@ export class Tab2Page implements OnInit {
         this.data = dados;
       });
     }
+
+  appearUSA() {
+    this.nUSA = !this.nUSA;
+  }
 }

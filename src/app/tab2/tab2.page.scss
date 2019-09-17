@@ -1,0 +1,19 @@
+.titulo {
+  font-size: 16px;
+  font-family: "Bree Serif", serif;
+}
+
+.light {
+  --background: #d6d7da;
+  ion-list {
+    background: #d6d7da;
+  }
+
+  ion-slides {
+    padding-top: 0px;      
+    --progress-bar-background-active: midnightblue;
+    --progress-bar-background: lightblue;
+    --progress-bar-background-active: midnightblue;
+    
+  }
+}
