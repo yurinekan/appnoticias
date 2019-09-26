@@ -25,6 +25,30 @@
       color: black;
     }
   }
+}
+.dark {
+  --background: #222428;
+  ion-list {
+    background: #222428;
+
+    ion-card-title {
+      color: grey;
+    }
+    ion-card-subtitle {
+      color: white;
+    }
+    #description {
+      padding-top: 10px;
+      color: grey;
+    }
+    ion-item {
+      --background: rgb(70, 70, 70);
+      ion-label {
+        color: white;
+      }
+    }
+  }
+}
 
   ion-slides {
     padding-top: 0px;      
@@ -33,4 +57,4 @@
     --progress-bar-background-active: midnightblue;
     
   }
-}
+

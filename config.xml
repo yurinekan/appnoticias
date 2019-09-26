@@ -2,7 +2,7 @@
 <widget id="io.ionic.newsapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>NewsAPP</name>
     <description>An awesome news app.</description>
-    <author email="hi@ionicframework.com" href="http://ionicframework.com/">Ionic Framework</author>
+    <author email="hi@ionicframework.com" href="http://google.com">Ionic</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />

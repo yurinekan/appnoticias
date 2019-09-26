@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NoticiasService } from '../noticias.service';
+import { Events } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -26,6 +27,7 @@ export class Tab2Page implements OnInit {
   nBRE = false;
   hideAll = false;
 
+  md: string;
   slideOpts = {
     slidesPerView: 1,
     initialSlide: 0,
@@ -35,9 +37,24 @@ export class Tab2Page implements OnInit {
       type: 'progressbar',
     }
   };
-  constructor(private noticiaService: NoticiasService) { }
+  constructor(private noticiaService: NoticiasService, public events: Events) {
+    events.subscribe('mode:dark', (mode, time) => {
+      console.log('Você está no darkmode', 'at', time);
+      this.hideAll = true;
+    });
+    events.subscribe('mode:light', (mode, time) => {
+      console.log('Você está no lightmode', 'at', time);
+      this.hideAll = false;
+    });
+  }
 
   ngOnInit() {
+    this.md = localStorage.getItem('mode');
+    if (this.md === 'dark') {
+      this.hideAll = true;
+    } else {
+      this.hideAll = false;
+    }
     // setTimeout(() => {
     //   this.nBRE = false;
     //   this.nUSA = false;
