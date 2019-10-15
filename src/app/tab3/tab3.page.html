@@ -28,31 +28,38 @@
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item lines="none" color="medium3">
-      <ion-label color="light">
-        <h2><b>Opção b</b></h2>
+    <ion-list-header color="medium3" style="color: midnightblue;">
+      Sobre:
+    </ion-list-header>
+    <ion-item lines="none" color="light2">
+      <ion-label color="dark" text-wrap>
+        <h2><b>O APPN tem como fronte propagar democraticamente e de forma gratuita, o acesso ás notícias mais recentes.</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-button fill="clear" slot="start">
         <ion-icon slot="icon-only" name="paper" mode="md" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
     <ion-item lines="none" color="medium2">
       <ion-label color="light">
-        <h2><b>Opção c</b></h2>
+        <h2><b>Notificações</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-toggle disabled color="midnightblue" [(ngModel)]="notifications"></ion-toggle>
+      <!-- <ion-button fill="clear" slot="end">
         <ion-icon slot="icon-only" name="planet" mode="md" color="dark"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </ion-item>
-    <ion-item lines="none" color="medium">
+    <ion-item lines="none" color="medium" (click)="openInstagram()">
       <ion-label color="light">
-        <h2><b>Opção d</b></h2>
+        <h2><b>Yuri Nekan</b></h2>
       </ion-label>
       <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="paper" mode="md" color="dark"></ion-icon>
+        <ion-icon slot="icon-only" name="logo-instagram" mode="md" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
+  <ion-label class="v" color="dark">
+      v: 0.0.1
+    </ion-label>
 </ion-content>
 
 <ion-footer [hidden]="lightM">
@@ -87,31 +94,39 @@
         <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item lines="none" color="medium4">
-      <ion-label color="dark">
-        <h2><b>Opção b</b></h2>
+    <ion-list-header color="medium4" style="color: midnightblue;">
+      Sobre:
+    </ion-list-header>
+    <ion-item lines="none" color="dark">
+      <ion-label color="light2" text-wrap>
+        <h2><b>O APPN tem como fronte propagar democraticamente e de forma gratuita, o acesso ás notícias mais recentes.</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-button fill="clear" slot="start">
         <ion-icon slot="icon-only" name="paper" mode="md" color="light"></ion-icon>
       </ion-button>
     </ion-item>
     <ion-item lines="none" color="medium5">
       <ion-label color="dark">
-        <h2><b>Opção c</b></h2>
+        <h2><b>Notificações</b></h2>
       </ion-label>
-      <ion-button fill="clear" slot="end">
+      <ion-toggle disabled color="midnightblue" [(ngModel)]="notifications"></ion-toggle>
+      <!-- <ion-button fill="clear" slot="end">
         <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
-      </ion-button>
+      </ion-button> -->
     </ion-item>
-    <ion-item lines="none" color="medium6">
+    <ion-item lines="none" color="medium6" (click)="openInstagram()">
       <ion-label color="dark">
-        <h2><b>Opção d</b></h2>
+        <h2><b>Yuri Nekan</b></h2>
       </ion-label>
       <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="paper" mode="md" color="light"></ion-icon>
+        <ion-icon slot="icon-only" name="logo-instagram" mode="md" color="light"></ion-icon>
       </ion-button>
     </ion-item>
   </ion-list>
+  <ion-label class="v">
+  v: 0.0.1
+  </ion-label>
+
 </ion-content>
 
 <ion-footer [hidden]="darkM">

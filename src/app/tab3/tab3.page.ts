@@ -1,3 +1,5 @@
+import { browser } from 'protractor';
+import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser/ngx';
 import { Component, OnInit } from '@angular/core';
 import { Events } from '@ionic/angular';
 
@@ -13,7 +15,7 @@ export class Tab3Page implements OnInit {
   darkM;
   lightM;
   md: string;
-  constructor(public events: Events) { }
+  constructor(public events: Events, public themeableBrowser: ThemeableBrowser) { }
 
   ngOnInit() {
     this.md = localStorage.getItem('mode');
@@ -47,8 +49,40 @@ export class Tab3Page implements OnInit {
     console.log(this.nome);
   }
 
-  metodoTeste() {
-    console.log('chamou');
-    return '';
+  openInstagram() {
+    const options: ThemeableBrowserOptions = {
+      toolbar: {
+        height: 44,
+        color: '#222428'
+      },
+      title: {
+        color: '#fffffff',
+        showPageTitle: true,
+        staticText: 'Instagram'
+      },
+      backButton: {
+        image: 'back',
+        imagePressed: 'back_pressed',
+        align: 'left',
+        event: 'backPressed'
+    },
+    forwardButton: {
+        image: 'forward',
+        imagePressed: 'forward_pressed',
+        align: 'left',
+        event: 'forwardPressed'
+    },
+    closeButton: {
+        image: 'close',
+        imagePressed: 'close_pressed',
+        align: 'left',
+        event: 'closePressed'
+    },
+
+    };
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://instagram.com', '_blank', options);
+    browser.on('closePressed').subscribe(res => {
+      browser.close();
+    });
   }
 }

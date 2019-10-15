@@ -29,6 +29,9 @@
 .dark {
   --background: #222428;
   ion-list {
+    ion-card {
+      background: black;
+    }
     background: #222428;
 
     ion-card-title {
