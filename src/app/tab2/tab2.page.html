@@ -11,19 +11,19 @@
 
     <!-- Notícias Esportes -->
 
-    <ion-item lines="full" (click)="appearBRE()">
+    <ion-item lines="none" (click)="appearBRE()">
       <ion-label class="titulo">
         Esportes
       </ion-label>
-      <ion-icon name="arrow-dropdown" *ngIf="nBRE"></ion-icon>
-      <ion-icon name="arrow-dropright" *ngIf="!nBRE"></ion-icon>
+      <ion-icon name="md-arrow-dropup" *ngIf="nBRE" class="animated rotateIn fast2"></ion-icon>
+      <ion-icon name="md-arrow-dropright" *ngIf="!nBRE"></ion-icon>
     </ion-item>
 
     <ion-slides pager [options]="slideOpts" [ngClass]="this.nBRE ? 'active' : 'inactive'">
       <ion-slide *ngFor="let article of databre?.articles">
         <ion-card class="animated fadeIn fast2">
 
-          <ion-img [src]="article.urlToImage"></ion-img>
+          <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
 
           <ion-card-content>
 
@@ -32,7 +32,9 @@
             <ion-card-title mode="md"><strong>{{article.title}}</strong></ion-card-title>
 
             <p id="description">{{article.description}}</p>
-
+            <ion-button color="medium" fill="clear" href="{{article.url}}">
+              ver mais...
+            </ion-button>
           </ion-card-content>
         </ion-card>
       </ion-slide>
@@ -40,19 +42,19 @@
 
     <!-- Tecnologia -->
 
-    <ion-item lines="full" (click)="appearTEC()">
+    <ion-item lines="none" (click)="appearTEC()">
       <ion-label class="titulo">
         Tecnologia
       </ion-label>
-      <ion-icon name="arrow-dropdown" *ngIf="nTEC"></ion-icon>
-      <ion-icon name="arrow-dropright" *ngIf="!nTEC"></ion-icon>
+      <ion-icon name="md-arrow-dropup" *ngIf="nTEC" class="animated rotateIn fast2"></ion-icon>
+      <ion-icon name="md-arrow-dropright" *ngIf="!nTEC"></ion-icon>
     </ion-item>
 
     <ion-slides pager [options]="slideOpts" [ngClass]="this.nTEC ? 'active' : 'inactive'">
       <ion-slide *ngFor="let article of datatec?.articles">
         <ion-card class="animated fadeIn fast2">
 
-          <ion-img [src]="article.urlToImage"></ion-img>
+          <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
 
           <ion-card-content>
 
@@ -68,19 +70,19 @@
 
     <!-- Entretenimento -->
 
-    <ion-item lines="full" (click)="appearENT()">
+    <ion-item lines="none" (click)="appearENT()">
         <ion-label class="titulo">
-          Entretenimento
+          Negócios
         </ion-label>
-        <ion-icon name="arrow-dropdown" *ngIf="nENT"></ion-icon>
-        <ion-icon name="arrow-dropright" *ngIf="!nENT"></ion-icon>
+        <ion-icon name="md-arrow-dropup" *ngIf="nENT" class="animated rotateIn fast2"></ion-icon>
+        <ion-icon name="md-arrow-dropright" *ngIf="!nENT"></ion-icon>
       </ion-item>
   
       <ion-slides pager [options]="slideOpts" [ngClass]="this.nENT ? 'active' : 'inactive'">
         <ion-slide *ngFor="let article of dataent?.articles">
           <ion-card class="animated fadeIn fast2">
   
-            <ion-img [src]="article.urlToImage"></ion-img>
+            <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
   
             <ion-card-content>
   
@@ -96,19 +98,19 @@
 
     <!-- Saúde -->
 
-    <ion-item lines="full" (click)="appearHLT()">
+    <ion-item lines="none" (click)="appearHLT()">
         <ion-label class="titulo">
           Saúde
         </ion-label>
-        <ion-icon name="arrow-dropdown" *ngIf="nHLT"></ion-icon>
-        <ion-icon name="arrow-dropright" *ngIf="!nHLT"></ion-icon>
+        <ion-icon name="md-arrow-dropup" *ngIf="nHLT" class="animated rotateIn fast2"></ion-icon>
+        <ion-icon name="md-arrow-dropright" *ngIf="!nHLT"></ion-icon>
       </ion-item>
   
       <ion-slides pager [options]="slideOpts" [ngClass]="this.nHLT ? 'active' : 'inactive'">
         <ion-slide *ngFor="let article of datahlt?.articles">
           <ion-card class="animated fadeIn fast2">
   
-            <ion-img [src]="article.urlToImage"></ion-img>
+            <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
   
             <ion-card-content>
   
@@ -124,19 +126,19 @@
 
     <!-- Notícias USA -->
 
-    <ion-item lines="full" (click)="appearUSA()">
+    <ion-item lines="none" (click)="appearUSA()">
       <ion-label class="titulo">
         United States
       </ion-label>
-      <ion-icon name="arrow-dropdown" *ngIf="nUSA"></ion-icon>
-      <ion-icon name="arrow-dropright" *ngIf="!nUSA"></ion-icon>
+      <ion-icon name="md-arrow-dropup" *ngIf="nUSA" class="animated rotateIn fast2"></ion-icon>
+      <ion-icon name="md-arrow-dropright" *ngIf="!nUSA"></ion-icon>
     </ion-item>
 
     <ion-slides pager [options]="slideOpts" [ngClass]="this.nUSA ? 'active' : 'inactive'">
       <ion-slide *ngFor="let article of datausa?.articles">
         <ion-card class="animated fadeIn fast2">
 
-          <ion-img [src]="article.urlToImage"></ion-img>
+          <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
 
           <ion-card-content>
 
@@ -149,6 +151,8 @@
         </ion-card>
       </ion-slide>
     </ion-slides>
-
   </ion-list>
+  <ion-fab size="large" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="midnightblue"><ion-icon name="add" (click)="options()"></ion-icon></ion-fab-button>
+  </ion-fab>
 </ion-content>

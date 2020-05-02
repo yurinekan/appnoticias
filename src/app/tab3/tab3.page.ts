@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { browser } from 'protractor';
 import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser/ngx';
 import { Component, OnInit } from '@angular/core';
@@ -9,13 +10,15 @@ import { Events } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page implements OnInit {
-
-  nome = '';
+  ig = true;
+  name = 'Visitante';
+  notifications;
   bulb;
   darkM;
   lightM;
   md: string;
-  constructor(public events: Events, public themeableBrowser: ThemeableBrowser) { }
+  object;
+  constructor(public events: Events, public themeableBrowser: ThemeableBrowser, public alertCtrl: AlertController) { }
 
   ngOnInit() {
     this.md = localStorage.getItem('mode');
@@ -28,6 +31,35 @@ export class Tab3Page implements OnInit {
       this.lightM = false;
       this.bulb = false;
     }
+      this.nameQuest();
+      if(this.name == null || ' ' || undefined || '') this.name = 'Visitante'
+  }
+
+  async nameQuest() {
+    let alert = await this.alertCtrl.create({
+      header: 'Olá! Qual seu nome?',
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'Wilson Pereira'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Ok',
+          handler: data => {
+            this.name = data.username;
+            this.events.publish(data);
+            localStorage.setItem('name', data);
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+  showIg(){
+    this.ig = !this.ig;
+    console.log(this.name)
   }
   darkMode(mode) {
     this.bulb = !this.bulb;
@@ -45,42 +77,68 @@ export class Tab3Page implements OnInit {
       localStorage.setItem('mode', 'light');
     }
   }
-  nameFunc() {
-    console.log(this.nome);
-  }
-
   openInstagram() {
     const options: ThemeableBrowserOptions = {
       toolbar: {
         height: 44,
-        color: '#222428'
+        color: '#222428ff'
       },
       title: {
         color: '#fffffff',
         showPageTitle: true,
-        staticText: 'Instagram'
+        staticText: 'APPN'
       },
       backButton: {
-        image: 'back',
-        imagePressed: 'back_pressed',
+        wwwImage: 'assets/icon/back.svg',
         align: 'left',
         event: 'backPressed'
     },
     forwardButton: {
-        image: 'forward',
-        imagePressed: 'forward_pressed',
+        wwwImage: 'assets/icon/back.svg',
         align: 'left',
         event: 'forwardPressed'
     },
     closeButton: {
-        image: 'close',
-        imagePressed: 'close_pressed',
-        align: 'left',
+        wwwImage: 'assets/icon/back.svg',
+        align: 'right',
         event: 'closePressed'
     },
 
     };
-    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://instagram.com', '_blank', options);
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://google.com/', '_self', options);
+    browser.on('closePressed').subscribe(res => {
+      browser.close();
+    });
+  }
+  openFace() {
+    const options: ThemeableBrowserOptions = {
+      toolbar: {
+        height: 44,
+        color: '#222428ff'
+      },
+      title: {
+        color: '#fffffff',
+        showPageTitle: true,
+        staticText: 'APPN'
+      },
+      backButton: {
+        wwwImage: 'assets/icon/back.svg',
+        align: 'left',
+        event: 'backPressed'
+    },
+    forwardButton: {
+        wwwImage: 'assets/icon/back.svg',
+        align: 'left',
+        event: 'forwardPressed'
+    },
+    closeButton: {
+        wwwImage: 'assets/icon/back.svg',
+        align: 'right',
+        event: 'closePressed'
+    },
+
+    };
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://pt-br.facebook.com/yurinekan', '_blank', options);
     browser.on('closePressed').subscribe(res => {
       browser.close();
     });

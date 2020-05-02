@@ -1,4 +1,4 @@
-<ion-app style="background: #d6d7da">
+<ion-app style="background: #fcfcfc;">
   <ion-header>
     <ion-toolbar color="midnightblue">
       <ion-title>Notícias Recentes</ion-title>
@@ -11,7 +11,7 @@
   </ion-header>
   <ion-content [ngClass]="this.hideAll ? 'dark' : 'light'">
     <ion-refresher slot="fixed" (ionRefresh)="dataRefresh($event)">
-      <ion-refresher-content></ion-refresher-content>
+      <ion-refresher-content ></ion-refresher-content>
     </ion-refresher>
 
     <ion-searchbar [(ngModel)]="pesquisa" (keyup.enter)="dataSearch($event)" [hidden]="hideSearch"
@@ -19,7 +19,7 @@
     </ion-searchbar>
     <ion-card *ngFor="let article of data?.articles" class="animated fadeIn fast" (click)="goToArticle(article)">
 
-      <ion-img [src]="article.urlToImage"></ion-img>
+      <ion-img [src]="article.urlToImage" alt="esse artigo não tem foto"></ion-img>
 
       <ion-card-content>
 

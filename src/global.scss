@@ -27,6 +27,11 @@
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Bree+Serif|Roboto&display=swap');
 
+.ctL {
+  --background: rgba(255, 255, 255, 0);
+  --spinner-color: white;
+}
+
 ion-card-title {
     font-family: 'Bree Serif', serif;
 }
@@ -36,7 +41,9 @@ ion-card-subtitle {
 .nome {
     font-family: 'Bree Serif', sans-serif;
 }
-
+ion-header {
+  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.288);
+}
 .animated {
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
@@ -79,8 +86,6 @@ ion-card-subtitle {
     animation-name: fadeIn;
   }
 
-
-
   @-webkit-keyframes rotateIn {
     from {
       -webkit-transform-origin: center;
@@ -120,4 +125,45 @@ ion-card-subtitle {
   .rotateIn {
     -webkit-animation-name: rotateIn;
     animation-name: rotateIn;
-  }  
+  } 
+
+  // @-webkit-keyframes rotateIn2 {
+  //   from {
+  //     -webkit-transform-origin: center;
+  //     transform-origin: center;
+  //     -webkit-transform: rotate3d(0, 0, 1, -200deg);
+  //     transform: rotate3d(0, 0, 1, -200deg);
+  //     opacity: 0;
+  //   }
+  
+  //   to {
+  //     -webkit-transform-origin: center;
+  //     transform-origin: center;
+  //     -webkit-transform: translate3d(0, 0, 0);
+  //     transform: translate3d(0, 0, 0);
+  //     opacity: 1;
+  //   }
+  // }
+  
+  // @keyframes rotateIn2 {
+  //   from {
+  //     -webkit-transform-origin: center;
+  //     transform-origin: center;
+  //     -webkit-transform: rotate3d(0, 0, 1, -200deg);
+  //     transform: rotate3d(0, 0, 1, -200deg);
+  //     opacity: 0;
+  //   }
+  
+  //   to {
+  //     -webkit-transform-origin: center;
+  //     transform-origin: center;
+  //     -webkit-transform: translate3d(0, 0, 0);
+  //     transform: translate3d(0, 0, 0);
+  //     opacity: 1;
+  //   }
+  // }
+  
+  // .rotateIn2 {
+  //   -webkit-animation-name: rotateIn2;
+  //   animation-name: rotateIn2;
+  // }  

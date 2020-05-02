@@ -6,8 +6,29 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light2" [hidden]="lightM">
-  <ion-item color="medium6" class="nome" lines="none">
+<ion-content [hidden]="lightM" padding>
+  <div class="img">
+    <img src="../../assets/profile2.jpg" alt="imagem não carregou" class="profile">
+  </div>
+  <div class="text">
+    <ion-label><b>O <span id="APPN">APPN</span> tem como fronte propagar democraticamente e de forma <span>gratuita</span> o acesso às notícias mais recentes.</b></ion-label>
+  </div>
+  <div class="text">
+    <ion-label><b>É um <span id="APPN">prazer</span> te ter aqui {{name}}, obrigado por <span>ser</span> APPN!</b></ion-label>
+  </div>
+  <div>
+  <span (click)="showIg()" id="yuri">Ass.: Yuri Nekan<br>v0.0.2</span>
+  <ion-icon [hidden]="this.ig" name="logo-instagram" class="animated fadeIn fast" size="large" (click)="openInstagram()"></ion-icon>
+  <ion-icon [hidden]="this.ig" color="primary" name="logo-facebook" class="animated fadeIn fast" size="large" (click)="openFace()"></ion-icon>
+  </div>
+
+  <ion-fab size="large" vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="midnightblue" (click)="darkMode()">
+      <ion-icon name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
+      <ion-icon name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!-- <ion-item color="medium6" class="nome" lines="none">
     <h2><strong>E aí, {{nome}}</strong></h2>
   </ion-item>
   <ion-list style="padding: 0px;">
@@ -33,7 +54,7 @@
     </ion-list-header>
     <ion-item lines="none" color="light2">
       <ion-label color="dark" text-wrap>
-        <h2><b>O APPN tem como fronte propagar democraticamente e de forma gratuita, o acesso ás notícias mais recentes.</b></h2>
+        <h2><b>O APPN tem como fronte propagar democraticamente e de forma <span id="free">gratuita</span> o acesso ás notícias mais recentes.</b></h2>
       </ion-label>
       <ion-button fill="clear" slot="start">
         <ion-icon slot="icon-only" name="paper" mode="md" color="dark"></ion-icon>
@@ -47,7 +68,7 @@
       <!-- <ion-button fill="clear" slot="end">
         <ion-icon slot="icon-only" name="planet" mode="md" color="dark"></ion-icon>
       </ion-button> -->
-    </ion-item>
+    <!-- </ion-item>
     <ion-item lines="none" color="medium" (click)="openInstagram()">
       <ion-label color="light">
         <h2><b>Yuri Nekan</b></h2>
@@ -59,81 +80,47 @@
   </ion-list>
   <ion-label class="v" color="dark">
       v: 0.0.1
-    </ion-label>
+    </ion-label>  -->
 </ion-content>
 
-<ion-footer [hidden]="lightM">
-  <ion-item href="https://newsapi.org/" lines="none" color="dark">
+<!-- <ion-footer [hidden]="lightM">
+  <ion-item href="https://newsapi.org/" lines="none" detail="false">
       <ion-label>
-        <strong>POWERED BY APINEWS.ORG</strong>
+        <strong>Powered by APINEWS.ORG</strong>
       </ion-label>
   </ion-item>
 </ion-footer>
-
-<!-- Dark Mode -->
-
-<ion-content color="dark" [hidden]="darkM">
-  <ion-item color="medium" class="nome" lines="none">
-  <h2><strong style="color: black">E aí, {{nome}}</strong></h2>
-  </ion-item>
-  <ion-list style="padding: 0px;">
-    <ion-item lines="none" color="medium2">
-      <ion-label color="dark">
-        <h2><b>Digite seu nome:</b></h2>
-      </ion-label>
-      <ion-input [(ngModel)]="nome" placeholder="Filomina" type="text" maxlength="15" (keyup.enter)='nomeFunc()' color="dark"></ion-input>
-      <ion-button fill="clear" slot="end">
-      </ion-button>
-    </ion-item>
-    <ion-item lines="none" color="medium3" (click)="darkMode()">
-      <ion-label color="dark">
-        <h2><b>Modo escuro</b></h2>
-      </ion-label>
-      <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
-        <ion-icon slot="icon-only" name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
-      </ion-button>
-    </ion-item>
-    <ion-list-header color="medium4" style="color: midnightblue;">
-      Sobre:
-    </ion-list-header>
-    <ion-item lines="none" color="dark">
-      <ion-label color="light2" text-wrap>
-        <h2><b>O APPN tem como fronte propagar democraticamente e de forma gratuita, o acesso ás notícias mais recentes.</b></h2>
-      </ion-label>
-      <ion-button fill="clear" slot="start">
-        <ion-icon slot="icon-only" name="paper" mode="md" color="light"></ion-icon>
-      </ion-button>
-    </ion-item>
-    <ion-item lines="none" color="medium5">
-      <ion-label color="dark">
-        <h2><b>Notificações</b></h2>
-      </ion-label>
-      <ion-toggle disabled color="midnightblue" [(ngModel)]="notifications"></ion-toggle>
-      <!-- <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="planet" mode="md" color="light"></ion-icon>
-      </ion-button> -->
-    </ion-item>
-    <ion-item lines="none" color="medium6" (click)="openInstagram()">
-      <ion-label color="dark">
-        <h2><b>Yuri Nekan</b></h2>
-      </ion-label>
-      <ion-button fill="clear" slot="end">
-        <ion-icon slot="icon-only" name="logo-instagram" mode="md" color="light"></ion-icon>
-      </ion-button>
-    </ion-item>
-  </ion-list>
-  <ion-label class="v">
-  v: 0.0.1
-  </ion-label>
-
-</ion-content>
 
 <ion-footer [hidden]="darkM">
-  <ion-item href="https://newsapi.org/" lines="none" color="darkreal" style="--ion-color-darkreal-shade: #353535;">
-      <ion-label color="light2">
-        <strong>POWERED BY APINEWS.ORG</strong>
+  <ion-item href="https://newsapi.org/" lines="none" detail="false">
+      <ion-label>
+        <strong>Powered by APINEWS.ORG</strong>
       </ion-label>
   </ion-item>
-</ion-footer>
+</ion-footer> -->
+<!-- Dark Mode -->
 
+<ion-content [hidden]="darkM" padding style="--background: linear-gradient(351deg, rgb(0, 0, 0), rgb(11, 6, 61) 40%)">
+  <div class="img">
+    <img src="../../assets/profile2.jpg" alt="imagem não carregou" class="profile2">
+  </div>
+  <div class="text">
+    <ion-label><b style="color: grey;">O <span id="APPN2">APPN</span> tem como fronte propagar democraticamente e de forma <span>gratuita</span> o acesso às notícias mais recentes.</b></ion-label>
+  </div>
+  <div class="text">
+    <ion-label><b style="color: grey;">É um <span id="APPN2">prazer</span> te ter aqui {{name}}, obrigado por <span>ser</span> APPN!</b></ion-label>
+  </div>
+  <div>
+  <span (click)="showIg()" id="yuri2">Ass.: Yuri Nekan<br>v0.0.2</span>
+  <ion-icon [hidden]="this.ig" color="light" name="logo-instagram" class="animated fadeIn fast" size="large" (click)="openInstagram()"></ion-icon>
+  <ion-icon [hidden]="this.ig" color="primary" name="logo-facebook" class="animated fadeIn fast" size="large" (click)="openFace()"></ion-icon>
+  </div>
+
+  <ion-fab size="large" vertical="bottom" horizontal="end" slot="fixed" style="box-shadow: 0px 0px 10px #98cceb;
+        border-radius: 50%;">
+    <ion-fab-button color="primary" (click)="darkMode()">
+      <ion-icon name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
+      <ion-icon name="bulb" mode="md" color="light" *ngIf="!bulb"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

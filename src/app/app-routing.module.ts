@@ -8,7 +8,9 @@ const routes: Routes = [
   },
   { path: 'noticias', loadChildren: './noticias/noticias.module#NoticiasPageModule' },
   { path: 'noticia-solo', loadChildren: './noticia-solo/noticia-solo.module#NoticiaSoloPageModule' },
-  { path: 'noticia-solo-dark', loadChildren: './noticia-solo-dark/noticia-solo-dark.module#NoticiaSoloDarkPageModule' }
+  { path: 'noticia-solo-dark', loadChildren: './noticia-solo-dark/noticia-solo-dark.module#NoticiaSoloDarkPageModule' },
+  { path: 'tab1', loadChildren: './tab1/tab1.module#Tab1PageModule' }
+
 
 ];
 @NgModule({

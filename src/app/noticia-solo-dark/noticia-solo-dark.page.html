@@ -1,18 +1,20 @@
 <ion-header>
   <ion-toolbar color="midnightblue">
     <ion-buttons slot="start">
-      <ion-back-button text="Voltar"></ion-back-button>
+      <ion-back-button text=" "></ion-back-button>
     </ion-buttons>
     <ion-title text-lowercase>{{article.source.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="darkreal" class="center">
-  <ion-img [src]="article.urlToImage"></ion-img>
+<ion-content class="center">
+  <div class="title">
+    <p><strong>{{article.title}}</strong></p>
+  </div>
+  <ion-img [src]="article.urlToImage" alt="esse artigo não tem imagem"></ion-img>
   <h5 style="color: grey;" class="horas">{{article.publishedAt | date: 'dd/MM/yyyy H:mm'}}</h5>
-  <p><strong padding>{{article.title}}</strong></p>
   <p id="description">{{article.content}}</p>
   <ion-button color="medium2" fill="clear" href="{{article.url}}">
-    ver mais
+    ver mais...
   </ion-button>
 </ion-content>

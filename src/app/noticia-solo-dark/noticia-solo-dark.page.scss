@@ -1,8 +1,10 @@
 ion-content.center {
   text-align: center;
+  --background: rgb(5, 5, 5);
+
   h5 {
     margin-top: 7px;
-    margin-left: 4px;
+    margin-left: 16px;
     font-family: "Roboto", sans-serif;
     text-align: left;
     --color: #666;
@@ -12,7 +14,25 @@ ion-content.center {
     text-transform: uppercase;
   }
 }
+.title {
+  background: linear-gradient(351deg, rgb(0, 0, 0), rgb(11, 6, 61) 40%);
+  p {
+    padding: 16px;
+    margin: 0;
+  }
+}
 p {
-  color: white;
+  padding: 0 16px;
+  font-size: 20px;
+  color: rgb(230, 230, 230);
   font-family: "Bree Serif", serif;
 }
+ion-img {
+  border-top: 4px solid #101046;
+  border-bottom: 4px solid #101046;
+
+}
+  #description {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+  }
