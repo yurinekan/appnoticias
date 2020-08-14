@@ -3,5 +3,18 @@
 <ion-content>
     <div class="content">
         <span>APPN</span>
-    </div>
+        <div class="text">
+                <form [formGroup]="fGroup">
+                    <ion-item lines="none" mode='md'>
+                        <ion-label mode='md' position="floating">Seu nome</ion-label>
+                        <ion-input [(ngModel)]="name" type="text" mode='md' formControlName="name"></ion-input>
+                    </ion-item>
+                </form>
+            </div>
+            <h4 *ngIf="fGroup.controls.name.hasError('pattern')">Apenas Letras</h4>
+            <ion-button [disabled]="!fGroup.valid" (click)="start()">
+                Entrar
+            </ion-button>
+            <a href="">Entrar como visitante</a>
+        </div>
 </ion-content>

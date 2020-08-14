@@ -3,6 +3,8 @@ import { browser } from 'protractor';
 import { ThemeableBrowser, ThemeableBrowserOptions, ThemeableBrowserObject } from '@ionic-native/themeable-browser/ngx';
 import { Component, OnInit } from '@angular/core';
 import { Events } from '@ionic/angular';
+import { User } from './../../models/user';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-tab3',
@@ -18,7 +20,8 @@ export class Tab3Page implements OnInit {
   lightM;
   md: string;
   object;
-  constructor(public events: Events, public themeableBrowser: ThemeableBrowser, public alertCtrl: AlertController) { }
+  user: User;
+  constructor(public events: Events, public themeableBrowser: ThemeableBrowser, public alertCtrl: AlertController, private storage: Storage) { }
 
   ngOnInit() {
     this.md = localStorage.getItem('mode');
@@ -31,35 +34,16 @@ export class Tab3Page implements OnInit {
       this.lightM = false;
       this.bulb = false;
     }
-      this.nameQuest();
-      if(this.name == null || ' ' || undefined || '') this.name = 'Visitante'
+      // this.nameQuest();
+      this.storage.get('user').then((user) => {
+        this.name = user.name
+      })
+      
   }
-
-  async nameQuest() {
-    let alert = await this.alertCtrl.create({
-      header: 'Olá! Qual seu nome?',
-      inputs: [
-        {
-          name: 'username',
-          placeholder: 'Wilson Pereira'
-        }
-      ],
-      buttons: [
-        {
-          text: 'Ok',
-          handler: data => {
-            this.name = data.username;
-            this.events.publish(data);
-            localStorage.setItem('name', data);
-          }
-        }
-      ]
-    });
-    await alert.present();
-  }
+  
   showIg(){
     this.ig = !this.ig;
-    console.log(this.name)
+    console.log(this.user.getNome())
   }
   darkMode(mode) {
     this.bulb = !this.bulb;
@@ -105,7 +89,7 @@ export class Tab3Page implements OnInit {
     },
 
     };
-    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://google.com/', '_self', options);
+    const browser: ThemeableBrowserObject = this.themeableBrowser.create('https://instagram.com/yurinekan', '_self', options);
     browser.on('closePressed').subscribe(res => {
       browser.close();
     });

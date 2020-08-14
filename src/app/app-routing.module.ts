@@ -4,12 +4,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./tab1/tab1.module').then(m => m.Tab1PageModule)
   },
   { path: 'noticias', loadChildren: './noticias/noticias.module#NoticiasPageModule' },
   { path: 'noticia-solo', loadChildren: './noticia-solo/noticia-solo.module#NoticiaSoloPageModule' },
   { path: 'noticia-solo-dark', loadChildren: './noticia-solo-dark/noticia-solo-dark.module#NoticiaSoloDarkPageModule' },
-  { path: 'tab1', loadChildren: './tab1/tab1.module#Tab1PageModule' }
+  { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' }
 
 
 ];

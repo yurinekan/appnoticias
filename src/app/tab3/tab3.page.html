@@ -110,13 +110,13 @@
   <div class="text">
     <ion-label><b style="color: grey;">É um <span id="APPN2">prazer</span> te ter aqui {{name}}, obrigado por <span>ser</span> APPN!</b></ion-label>
   </div>
-  <div>
+  <div id="info">
   <span (click)="showIg()" id="yuri2">Ass.: Yuri Nekan<br>v0.0.2</span>
   <ion-icon [hidden]="this.ig" color="light" name="logo-instagram" class="animated fadeIn fast" size="large" (click)="openInstagram()"></ion-icon>
   <ion-icon [hidden]="this.ig" color="primary" name="logo-facebook" class="animated fadeIn fast" size="large" (click)="openFace()"></ion-icon>
   </div>
 
-  <ion-fab size="large" vertical="bottom" horizontal="end" slot="fixed" style="box-shadow: 0px 0px 10px #98cceb;
+<ion-fab size="large" vertical="bottom" horizontal="end" slot="fixed" style="box-shadow: 0px 0px 10px #98cceb;
         border-radius: 50%;">
     <ion-fab-button color="primary" (click)="darkMode()">
       <ion-icon name="bulb" mode="md" color="dark" *ngIf="bulb"></ion-icon>
