@@ -22,12 +22,24 @@ export class Tab1Page implements OnInit {
         Validators.minLength(3),
         Validators.pattern('^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]+$')
       ])]});
+      this.storage.get('user').then((user) => {
+        if (user.name !== 'Visitante' && user.name !== undefined) {
+          console.log(user.name)
+          this.navCtrl.navigateRoot('/tabs/noticias');
+        }
+
+      })
   }
   ngOnInit() {
   }
+  guest() {
+    this.navCtrl.navigateRoot('/tabs/noticias')
+    this.name = 'Visitante'
+    this.user = new User(this.name)
+    this.storage.set('user', this.user);
+  }
   start() {
     this.navCtrl.navigateRoot('/tabs/noticias')
-    console.log(this.name)
     this.user = new User(this.name)
     this.storage.set('user', this.user);
   }

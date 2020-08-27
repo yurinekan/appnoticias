@@ -13,7 +13,7 @@ import { Storage } from '@ionic/storage';
 })
 export class Tab3Page implements OnInit {
   ig = true;
-  name = 'Visitante';
+  name;
   notifications;
   bulb;
   darkM;
@@ -34,11 +34,9 @@ export class Tab3Page implements OnInit {
       this.lightM = false;
       this.bulb = false;
     }
-      // this.nameQuest();
       this.storage.get('user').then((user) => {
         this.name = user.name
       })
-      
   }
   
   showIg(){

@@ -30,6 +30,7 @@
 .ctL {
   --background: rgba(255, 255, 255, 0);
   --spinner-color: white;
+  box-shadow: 0 0 0 transparent;
 }
 
 ion-card-title {
@@ -42,7 +43,15 @@ ion-card-subtitle {
     font-family: 'Bree Serif', sans-serif;
 }
 ion-header {
-  box-shadow: 5px 5px 10px 1px rgba(0, 0, 0, 0.288);
+  box-shadow: 0px 3px 10px 1px rgba(0, 0, 0, 0.288);
+  ion-title {
+    font-family: 'Bree Serif', sans-serif;
+    letter-spacing: 1px;
+  }
+  strong {
+    font-family: 'Bree Serif', sans-serif;
+      letter-spacing: 1px;
+  }
 }
 .animated {
     -webkit-animation-duration: 1s;

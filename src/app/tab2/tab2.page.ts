@@ -59,6 +59,7 @@ export class Tab2Page implements OnInit {
       duration: 2000,
       spinner: "crescent",
       cssClass: "ctL",
+      mode: "ios"
     });
     await loading.present();
 
@@ -108,7 +109,13 @@ export class Tab2Page implements OnInit {
       this.nUSA = !this.nUSA;
     }
   }
-  options() {}
+  async options() {
+    const alert = await this.alertCtrl.create({
+      'message': 'Ainda não disponível.',
+      buttons: ['Ok!']
+    });
+    await alert.present();
+  }
   async appearBRE() {
     this.bre++;
 

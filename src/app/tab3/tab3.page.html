@@ -14,9 +14,9 @@
     <ion-label><b>O <span id="APPN">APPN</span> tem como fronte propagar democraticamente e de forma <span>gratuita</span> o acesso às notícias mais recentes.</b></ion-label>
   </div>
   <div class="text">
-    <ion-label><b>É um <span id="APPN">prazer</span> te ter aqui {{name}}, obrigado por <span>ser</span> APPN!</b></ion-label>
+    <ion-label><b>É um <span id="APPN">prazer</span> te ter aqui <b id="name">{{name}}</b>, obrigado por <span>ser</span> APPN!</b></ion-label>
   </div>
-  <div>
+  <div id="info">
   <span (click)="showIg()" id="yuri">Ass.: Yuri Nekan<br>v0.0.2</span>
   <ion-icon [hidden]="this.ig" name="logo-instagram" class="animated fadeIn fast" size="large" (click)="openInstagram()"></ion-icon>
   <ion-icon [hidden]="this.ig" color="primary" name="logo-facebook" class="animated fadeIn fast" size="large" (click)="openFace()"></ion-icon>

@@ -1,3 +1,4 @@
+import { FooterLoadingComponent } from './../components/footer-loading/footer-loading.component';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
@@ -12,6 +13,6 @@ import { Tab2Page } from './tab2.page';
     FormsModule,
     RouterModule.forChild([{ path: '', component: Tab2Page }])
   ],
-  declarations: [Tab2Page]
+  declarations: [Tab2Page, FooterLoadingComponent]
 })
 export class Tab2PageModule {}

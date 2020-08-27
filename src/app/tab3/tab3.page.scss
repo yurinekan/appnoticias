@@ -1,5 +1,4 @@
 ion-content {
-    // --overflow: hidden;
     --background:  linear-gradient(351deg, rgb(173, 223, 226) 20%, rgba(255, 255, 255, 0.945));
     .text {
         text-align: center;
@@ -7,16 +6,18 @@ ion-content {
     .img {
         text-align: center;
         .profile {
-            height: 180px;
-            width: 180px;
+            opacity: 0.9;
+            height: 150px;
+            width: 150px;
             border-radius: 100%;
-            box-shadow: 3px 4px 3px rgba(24, 24, 24, 0.397);
+            box-shadow: 3px 4px 3px rgba(24, 24, 24, 0.212);
           }
           .profile2 {
-            height: 180px;
-            width: 180px;
+            opacity: 0.9;
+            height: 150px;
+            width: 150px;
             border-radius: 100%;
-            box-shadow: 5px 4px 5px rgb(0, 0, 0);
+            box-shadow: 3px 4px 3px rgba(24, 24, 24, 0.212);
           }
     }
     ion-label {

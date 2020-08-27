@@ -2,7 +2,7 @@
   <ion-header>
     <ion-toolbar color="midnightblue">
       <ion-title>Notícias Recentes</ion-title>
-      <ion-button (click)="hideSearchf()" (click)="scrollTop()" slot="end" size="small" fill="clear">
+      <ion-button mode='ios' (click)="hideSearchf()" (click)="scrollTop()" slot="end" size="small" fill="clear">
         <ion-icon name="search" *ngIf="visible"></ion-icon>
         <ion-icon name="arrow-dropup" mode="md" *ngIf="!visible" class="animated rotateIn fast2"></ion-icon>
       </ion-button>
