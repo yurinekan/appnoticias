@@ -19,7 +19,8 @@
     </ion-searchbar>
     <ion-card *ngFor="let article of data?.articles" class="animated fadeIn fast" (click)="goToArticle(article)">
 
-      <ion-img [src]="article.urlToImage" alt="esse artigo não tem foto"></ion-img>
+      <ion-img *ngIf="article.urlToImage !== null || undefined" [src]="article.urlToImage" alt="esse artigo não tem foto"></ion-img>
+      <img *ngIf="article.urlToImage == null || undefined" src={{imgBase}}>
 
       <ion-card-content>
 

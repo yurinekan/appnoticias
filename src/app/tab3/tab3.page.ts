@@ -21,6 +21,7 @@ export class Tab3Page implements OnInit {
   md: string;
   object;
   user: User;
+  count = 0;
   constructor(public events: Events, public themeableBrowser: ThemeableBrowser, public alertCtrl: AlertController, private storage: Storage) { }
 
   ngOnInit() {
@@ -40,8 +41,11 @@ export class Tab3Page implements OnInit {
   }
   
   showIg(){
-    this.ig = !this.ig;
-    console.log(this.user.getNome())
+    this.count++
+    if (this.count == 12) {
+      this.ig = !this.ig;
+      this.count = 0;
+    }
   }
   darkMode(mode) {
     this.bulb = !this.bulb;

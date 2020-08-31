@@ -27,6 +27,7 @@ export class Tab2Page implements OnInit {
   nBRE = false;
   hideAll = false;
 
+  imgBase= "../../assets/icon/icon.png"
   md: string;
   slideOpts = {
     slidesPerView: 1,

@@ -18,6 +18,7 @@ export class NoticiasPage implements OnInit {
   visible = true;
   md: string;
 
+  imgBase= "../../assets/icon/icon.png"
   constructor(public noticiaService: NoticiasService, public events: Events, private router: Router) {
     events.subscribe('mode:dark', (mode, time) => {
       console.log('Você está no darkmode', 'at', time);
